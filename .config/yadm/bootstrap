@@ -1,4 +1,70 @@
 #!/bin/sh
 
+REL=$(lsb_release -si)
+
+if [ $REL = "Arch" ]; then
+    if [ $(which yay) != "/usr/bin/yay" ]; then
+        echo "Installing yay"
+        git clone https://aur.archlinux.org/yay.git
+        cd yay
+        makepkg -si
+        cd ..
+        rm -rf yay
+    fi
+
+    PKGLIST="yay yadm-git"
+
+    ## Tools
+    PKGLIST+="htop reflector"
+
+    ## GNOME
+    PKGLIST+=""
+
+    ## Apps
+    PKGLIST+=" keybase-bin brave-beta-bin spotify discord"
+
+    ## Games
+    PKGLIST+=" steam lutris"
+
+    ## Java
+    PKGLIST+=" jdk-openjdk jdk8-openjdk"
+
+    ## Dev tools
+    PKGLIST+=" git git-crypt code nodejs nvm intellij-idea-community-edition"
+
+    # ## NVIDIA Drivers
+    # if [ $(lspci  -v -s  $(lspci | grep ' VGA ' | cut -d" " -f 1) | grep NVIDIA | wc -l) -gt 0]; then
+    #     PKGLIST+=" nvidia nvidia-utils"
+    #     NVIDIA=1
+    # fi
+
+    $HOME/scripts/update-mirrors.sh
+
+    echo "Installing packages"
+    yay -Syu $PKGLIST --needed
+
+    # if [ $NVIDIA = 1]; then
+    #     sudo nvidia-xconfig
+    # fi
+fi
+
+## Keybase
+systemctl enable --user --now keybase
+keybase login m00n
+
+keybase ctl autostart --disable
+
+keybase pgp export | gpg --import
+keybase pgp export -s | gpg --allow-secret-key-import --import
+
+yadm git-crypt unlock
+
+## BetterDiscord
+curl -O https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
+chmod +x betterdiscordctl
+sudo mv betterdiscordctl /usr/local/bin
+
+betterdiscordctl install
+
 echo "Updating the yadm repo origin URL"
 yadm remote set-url origin "git@github.com:lmarianski/dotfiles.git"

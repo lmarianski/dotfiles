@@ -1,0 +1,8 @@
+{
+    "files.autoSave": "afterDelay",
+    "[csharp]": {
+        "editor.defaultFormatter": "ms-vscode.csharp"
+    },
+    "explorer.confirmDragAndDrop": false,
+    "editor.insertSpaces": false
+}
