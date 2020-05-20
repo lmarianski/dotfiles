@@ -1,0 +1,1 @@
+curl -fLo ./yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm && chmod a+x ./yadm && ./yadm clone https://github.com/lmarianski/dotfiles.git --bootstrap && rm ./yadm
