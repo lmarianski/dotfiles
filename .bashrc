@@ -21,15 +21,15 @@ alias ls='ls --color=auto'
 alias clip="xclip -sel clipboard"
 
 ###-tns-completion-start-###
-if [ -f /home/lukas2005/.tnsrc ]; then 
-    source /home/lukas2005/.tnsrc 
+if [ -f $HOME/.tnsrc ]; then 
+    source $HOME/.tnsrc 
 fi
 ###-tns-completion-end-###
 
 # added by travis gem
-[ -f /home/lukas2005/.travis/travis.sh ] && source /home/lukas2005/.travis/travis.sh
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
-source /usr/share/nvm/init-nvm.sh
+[ -f /usr/share/nvm/init-nvm.sh ] && source /usr/share/nvm/init-nvm.sh
 
 # Prompt Customization
 
@@ -55,7 +55,3 @@ enter_directory() {
 
 export PROMPT_COMMAND=enter_directory
 PS1='[\u@\h \W]\$ '
-
-#if [[ -n $SSH_CONNECTION ]]; then
-#	. ./.bash_ssh
-#fi

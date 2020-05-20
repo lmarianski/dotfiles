@@ -1,3 +1,0 @@
-# .bash_profile
-
-export PS1="\e[0;32m$PS1\e[m"
