@@ -1,0 +1,54 @@
+#!/bin/bash
+
+source /usr/share/nvm/init-nvm.sh
+
+PWD=$(pwd)
+
+cd $HOME
+
+nvm use lts/* > /dev/null
+node $HOME/scripts/kbfs-backup.js
+#nvm use default > /dev/null
+
+cd $PWD
+
+# #set -euo pipefail
+
+# bk_dir="$HOME/Dokumenty/"
+# keybase_username=m00nlit
+# keybase_dir=$(keybase config get -b mountdir)
+
+# archive="backup-$(date).tar.gz"
+
+# function date {
+#     date --utc +%Y%m%d_%H%M%SZ
+# }
+
+# gitRepos=("e")
+
+# function dirExec {
+#     gitRepos+=$1
+# }
+
+# # function findGitRepos {
+# #     array=("REEEEEEEEEEEE")
+# #     #mapfile -d $'\0' array < <(find "$bk_dir" -name "$1" -print0);
+
+
+# #     for dir in $array; do
+# #         echo $dir
+# #     done
+# # }
+
+# find "$bk_dir" -name ".git" | while read file; do gitRepos+="$file"; done
+
+# printf '%s\n' "${gitRepos[@]}"
+
+# #findGitRepos .git
+
+# # tar -czvf "$HOME/$archive" "$HOME/photos"
+
+# # 7z
+
+# # mkdir -p "$keybase_dir/private/$keybase_username/backups/"
+# # mv "$HOME/$archive" "$keybase_dir/private/$keybase_username/backups/$archive"

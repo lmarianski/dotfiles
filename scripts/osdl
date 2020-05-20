@@ -1,0 +1,3 @@
+#!/bin/bash
+
+setwindow osdlyrics 100 1000 15 25

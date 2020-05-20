@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euo pipefail
+
+bk_dir=$HOME/Dokumenty
+keybase_username=m00nlit
+keybase_dir=$(keybase config get -b mountdir)
+
+rsync -azPhv --delete "$bk_dir" --exclude node_modules "$keybase_dir/private/$keybase_username"
