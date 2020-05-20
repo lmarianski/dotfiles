@@ -1,0 +1,6 @@
+[user]
+	email = lmarianski@protonmail.com
+	name = Łukasz Mariański
+	signingkey = 701D861D2798AD1B
+[commit]
+	gpgsign = false
