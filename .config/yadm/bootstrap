@@ -59,6 +59,9 @@ if [ -x "$(which keybase)" ]; then
 
     keybase ctl autostart --disable
 
+    keybase config set mountdir $HOME/keybase
+    systemctl enable --user --now kbfs
+
     keybase pgp export | gpg --import
     keybase pgp export -s | gpg --allow-secret-key-import --import
 
