@@ -1,8 +1,6 @@
 #!/bin/sh
 
-REL=$(lsb_release -si)
-
-if [ $REL = "Arch" ]; then
+if [ $(which pacman) = "/usr/bin/pacman" ]; then
     if [ $(which yay) != "/usr/bin/yay" ]; then
         echo "Installing yay"
         git clone https://aur.archlinux.org/yay.git
@@ -49,6 +47,7 @@ if [ $REL = "Arch" ]; then
 fi
 
 ## Keybase
+if [ $(which keybase) = "/usr/bin/keybase" ]; then
 systemctl enable --user --now keybase
 keybase login m00n
 
@@ -58,13 +57,16 @@ keybase pgp export | gpg --import
 keybase pgp export -s | gpg --allow-secret-key-import --import
 
 yadm git-crypt unlock
+fi
 
 ## BetterDiscord
-curl -O https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
-chmod +x betterdiscordctl
-sudo mv betterdiscordctl /usr/local/bin
+if [ $(which discord) = "/usr/bin/discord" ]; then
+    curl -O https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
+    chmod +x betterdiscordctl
+    sudo mv betterdiscordctl /usr/local/bin
 
-betterdiscordctl install
+    betterdiscordctl install
 
-echo "Updating the yadm repo origin URL"
-yadm remote set-url origin "git@github.com:lmarianski/dotfiles.git"
+    echo "Updating the yadm repo origin URL"
+    yadm remote set-url origin "git@github.com:lmarianski/dotfiles.git"
+fi
