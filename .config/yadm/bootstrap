@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ $(which pacman) = "/usr/bin/pacman" ]; then
-    if [ $(which yay) != "/usr/bin/yay" ]; then
+if [ "$(which pacman)" = "/usr/bin/pacman" ]; then
+    if [ "$(which yay)" != "/usr/bin/yay" ]; then
         echo "Installing yay"
         git clone https://aur.archlinux.org/yay.git
         cd yay
@@ -19,7 +19,7 @@ if [ $(which pacman) = "/usr/bin/pacman" ]; then
     PKGLIST+=""
 
     ## Apps
-    PKGLIST+=" keybase-bin brave-beta-bin spotify discord"
+    PKGLIST+=" keybase keybase-gui kbfs brave-beta-bin spotify discord"
 
     ## Games
     PKGLIST+=" steam lutris"
@@ -47,26 +47,28 @@ if [ $(which pacman) = "/usr/bin/pacman" ]; then
 fi
 
 ## Keybase
-if [ $(which keybase) = "/usr/bin/keybase" ]; then
-systemctl enable --user --now keybase
-keybase login m00n
+if [ "$(which keybase)" = "/usr/bin/keybase" ]; then
+    systemctl enable --user --now keybase
+    keybase login m00n
 
-keybase ctl autostart --disable
+    keybase ctl autostart --disable
 
-keybase pgp export | gpg --import
-keybase pgp export -s | gpg --allow-secret-key-import --import
+    keybase pgp export | gpg --import
+    keybase pgp export -s | gpg --allow-secret-key-import --import
 
-yadm git-crypt unlock
+    yadm git-crypt unlock
 fi
 
 ## BetterDiscord
-if [ $(which discord) = "/usr/bin/discord" ]; then
-    curl -O https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
-    chmod +x betterdiscordctl
-    sudo mv betterdiscordctl /usr/local/bin
+if [ "$(which discord)" = "/usr/bin/discord" ]; then
+    if [ "$(which betterdiscordctl)" != "/usr/bin/betterdiscordctl" ]; then
+        curl -O https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
+        chmod +x betterdiscordctl
+        sudo mv betterdiscordctl /usr/local/bin
+    fi
 
     betterdiscordctl install
-
-    echo "Updating the yadm repo origin URL"
-    yadm remote set-url origin "git@github.com:lmarianski/dotfiles.git"
 fi
+
+echo "Updating the yadm repo origin URL"
+yadm remote set-url origin "git@github.com:lmarianski/dotfiles.git"
