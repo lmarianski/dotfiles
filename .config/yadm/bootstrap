@@ -10,10 +10,10 @@ if [ "$(which pacman)" = "/usr/bin/pacman" ]; then
         rm -rf yay
     fi
 
-    PKGLIST="yay yadm-git"
+    PKGLIST="yay yadm"
 
     ## Tools
-    PKGLIST+="htop reflector"
+    PKGLIST+=" htop reflector"
 
     ## GNOME
     PKGLIST+=""
@@ -49,7 +49,7 @@ fi
 ## Keybase
 if [ "$(which keybase)" = "/usr/bin/keybase" ]; then
     systemctl enable --user --now keybase
-    keybase login m00n
+    keybase login m00nlit
 
     keybase ctl autostart --disable
 
