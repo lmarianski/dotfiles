@@ -36,7 +36,7 @@ if [ $(which pacman) = "/usr/bin/pacman" ]; then
     #     NVIDIA=1
     # fi
 
-    pacman -S reflector
+    pacman -S --needed reflector
     $HOME/scripts/update-mirrors.sh
 
     echo "Installing packages"
