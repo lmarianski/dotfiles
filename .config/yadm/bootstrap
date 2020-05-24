@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ "$(which pacman)" = "/usr/bin/pacman" ]; then
-    if [ "$(which yay)" != "/usr/bin/yay" ]; then
+if [ -x "$(which pacman)" ]; then
+    if [ ! -x "$(which yay)" ]; then
         echo "Installing yay"
         git clone https://aur.archlinux.org/yay.git
         cd yay
@@ -13,7 +13,7 @@ if [ "$(which pacman)" = "/usr/bin/pacman" ]; then
     PKGLIST="yay yadm"
 
     ## Tools
-    PKGLIST+=" htop reflector"
+    PKGLIST+=" htop"
 
     ## GNOME
     PKGLIST+=""
@@ -36,10 +36,12 @@ if [ "$(which pacman)" = "/usr/bin/pacman" ]; then
     #     NVIDIA=1
     # fi
 
+    echo "Updating mirrorlist"
+    yay -S --needed reflector
     $HOME/scripts/update-mirrors.sh
 
     echo "Installing packages"
-    yay -Syu $PKGLIST --needed
+    yay -Syu --needed $PKGLIST
 
     # if [ $NVIDIA = 1]; then
     #     sudo nvidia-xconfig
@@ -47,7 +49,7 @@ if [ "$(which pacman)" = "/usr/bin/pacman" ]; then
 fi
 
 ## Keybase
-if [ "$(which keybase)" = "/usr/bin/keybase" ]; then
+if [ -x "$(which keybase)" ]; then
     systemctl enable --user --now keybase
     keybase login m00nlit
 
@@ -60,8 +62,8 @@ if [ "$(which keybase)" = "/usr/bin/keybase" ]; then
 fi
 
 ## BetterDiscord
-if [ "$(which discord)" = "/usr/bin/discord" ]; then
-    if [ "$(which betterdiscordctl)" != "/usr/bin/betterdiscordctl" ]; then
+if [ -x "$(which discord)" ]; then
+    if [ ! -x "$(which betterdiscordctl)" ]; then
         curl -O https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
         chmod +x betterdiscordctl
         sudo mv betterdiscordctl /usr/local/bin
