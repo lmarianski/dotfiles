@@ -4,5 +4,21 @@
         "editor.defaultFormatter": "ms-vscode.csharp"
     },
     "explorer.confirmDragAndDrop": false,
-    "editor.insertSpaces": false
+    "editor.insertSpaces": false,
+    "pandoc.pdfOptString": "--pdf-engine=xelatex",
+    "git.autofetch": true,
+    "i18n-ally.displayLanguage": "pl",
+    "git.confirmSync": false,
+    "editor.fontFamily": "'Hack', 'monospace', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "docker.contexts.label": "Name",
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path.linux": "/home/m00n/.vs-kubernetes/tools/helm/linux-amd64/helm",
+        "vs-kubernetes.draft-path.linux": "/home/m00n/.vs-kubernetes/tools/draft/linux-amd64/draft"
+    },
+    "cmake.configureOnOpen": true,
+    "docker.containers.label": "ContainerName",
+    "docker.containers.description": [
+        "FullTag",
+        "Status"
+    ]
 }

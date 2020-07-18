@@ -14,17 +14,24 @@ export KEYBASE=$(keybase config get -b mountdir)
 
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH:$HOME/scripts:/usr/local/bin:/home/lukas2005/.gem/ruby/${RUBY_VER}/bin:${ANDROID_PATH}:$HOME/.npm/bin:$GOPATH/bin:$PATH"
 
+PATH="$HOME/.node_modules/bin:$PATH"
+export npm_config_prefix=~/.node_modules
+
 # User specific aliases and functions
 
 #alias rm=trash
 alias ls='ls --color=auto'
 alias clip="xclip -sel clipboard"
+alias sn="java -jar $HOME/Dokumenty/Projects/sn/out/artifacts/sn_jar/sn.jar "
+alias "yarn berry"="yarn set version berry"
 
 ###-tns-completion-start-###
 if [ -f $HOME/.tnsrc ]; then 
     source $HOME/.tnsrc 
 fi
 ###-tns-completion-end-###
+
+eval $(kompose completion bash)
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh

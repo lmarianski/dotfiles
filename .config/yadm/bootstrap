@@ -13,17 +13,13 @@ if [ -x "$(which pacman)" ]; then
     PKGLIST="yay yadm"
 
     ## Tools
-<<<<<<< HEAD
     PKGLIST+=" htop"
-=======
-    PKGLIST+="htop"
->>>>>>> 85a2678286ab3608e388ec4b8e192c42333b022b
-
+    
     ## GNOME
-    PKGLIST+=""
+    PKGLIST+=" gnome-shell"
 
     ## Apps
-    PKGLIST+=" keybase keybase-gui kbfs brave-beta-bin spotify discord"
+    PKGLIST+=" keybase keybase-gui kbfs brave-bin spotify discord"
 
     ## Games
     PKGLIST+=" steam lutris"
