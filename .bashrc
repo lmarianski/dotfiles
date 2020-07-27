@@ -4,6 +4,9 @@
 [[ $- != *i* ]] && return
 
 # User specific environment
+
+export XDG_HOME_DIR=$HOME/.local/share
+
 export RUBY_VER=2.6.0
 export ANDROID_HOME=/opt/android-sdk/
 export ANDROID_PATH=${ANDROID_HOME}emulator:${ANDROID_HOME}tools/bin:${ANDROID_HOME}platform-tools/:${ANDROID_HOME}tools/
@@ -14,7 +17,7 @@ export KEYBASE=$(keybase config get -b mountdir)
 
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH:$HOME/scripts:/usr/local/bin:/home/lukas2005/.gem/ruby/${RUBY_VER}/bin:${ANDROID_PATH}:$HOME/.npm/bin:$GOPATH/bin:$PATH"
 
-PATH="$HOME/.node_modules/bin:$PATH"
+export PATH="$HOME/.node_modules/bin:$PATH"
 export npm_config_prefix=~/.node_modules
 
 # User specific aliases and functions
@@ -23,7 +26,11 @@ export npm_config_prefix=~/.node_modules
 alias ls='ls --color=auto'
 alias clip="xclip -sel clipboard"
 alias sn="java -jar $HOME/Dokumenty/Projects/sn/out/artifacts/sn_jar/sn.jar "
-alias "yarn berry"="yarn set version berry"
+#alias "yarn berry"="yarn set version berry"
+
+mkdir -p /tmp/makepkg
+export MAKEFLAGS=-j12
+export BUILDDIR=/tmp/makepkg
 
 ###-tns-completion-start-###
 if [ -f $HOME/.tnsrc ]; then 
@@ -31,7 +38,7 @@ if [ -f $HOME/.tnsrc ]; then
 fi
 ###-tns-completion-end-###
 
-eval $(kompose completion bash)
+#eval $(kompose completion bash)
 
 # added by travis gem
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
@@ -62,3 +69,4 @@ enter_directory() {
 
 export PROMPT_COMMAND=enter_directory
 PS1='[\u@\h \W]\$ '
+

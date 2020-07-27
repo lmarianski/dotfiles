@@ -1,0 +1,13 @@
+(if
+(matches (window_name) "tilda")
+(begin
+(stick)
+(below)
+(undecorate)
+(skip_pager)
+(skip_tasklist)
+(wintype "dock")
+(geometry "+240+250")
+(geometry "954×680")
+)
+)
