@@ -20,5 +20,7 @@
     "docker.containers.description": [
         "FullTag",
         "Status"
-    ]
+    ],
+    "docker.containers.sortBy": "Label",
+    "docker.containers.groupBy": "Compose Project Name"
 }

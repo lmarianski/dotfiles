@@ -5,7 +5,9 @@
 
 # User specific environment
 
-export XDG_HOME_DIR=$HOME/.local/share
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
 
 export RUBY_VER=2.6.0
 export ANDROID_HOME=/opt/android-sdk/
@@ -13,7 +15,7 @@ export ANDROID_PATH=${ANDROID_HOME}emulator:${ANDROID_HOME}tools/bin:${ANDROID_H
 export JAVA_HOME=/usr/lib/jvm/default
 export GOPATH=$HOME/go
 
-export KEYBASE=$(keybase config get -b mountdir)
+#export KEYBASE=$(keybase config get -b mountdir)
 
 export PATH="$HOME/.local/bin:$HOME/bin:$PATH:$HOME/scripts:/usr/local/bin:/home/lukas2005/.gem/ruby/${RUBY_VER}/bin:${ANDROID_PATH}:$HOME/.npm/bin:$GOPATH/bin:$PATH"
 
