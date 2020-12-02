@@ -17,10 +17,9 @@ export GOPATH=$HOME/go
 
 #export KEYBASE=$(keybase config get -b mountdir)
 
-export PATH="$HOME/.local/bin:$HOME/bin:$PATH:$HOME/scripts:/usr/local/bin:/home/lukas2005/.gem/ruby/${RUBY_VER}/bin:${ANDROID_PATH}:$HOME/.npm/bin:$GOPATH/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/bin:$PATH:$HOME/scripts:/usr/local/bin:$HOME/.gem/ruby/${RUBY_VER}/bin:${ANDROID_PATH}:$HOME/.npm/bin:$GOPATH/bin:$PATH"
 
 export PATH="$HOME/.node_modules/bin:$PATH"
-export npm_config_prefix=~/.node_modules
 
 # User specific aliases and functions
 
@@ -54,6 +53,8 @@ fi
 # a .nvmrc file in the directory. Also, revert to default 
 # version when entering a directory without .nvmrc
 #
+source /usr/share/nvm/init-nvm.sh
+
 enter_directory() {
 	if [[ $PWD == $PREV_PWD ]]; then
 	    return

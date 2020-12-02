@@ -1,5 +1,5 @@
 {
-    "files.autoSave": "afterDelay",
+    "files.autoSave": "off",
     "[csharp]": {
         "editor.defaultFormatter": "ms-vscode.csharp"
     },
@@ -22,5 +22,36 @@
         "Status"
     ],
     "docker.containers.sortBy": "Label",
-    "docker.containers.groupBy": "Compose Project Name"
+    "docker.containers.groupBy": "Compose Project Name",
+    "files.associations": {
+        "*.conf": "nginx"
+    },
+    "typescript.tsserver.log": "verbose",
+    "typescript.locale": "en",
+    "sync.gist": "0b0003b24840806e7fdd801a07e7d18f",
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.currentLine.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.defaultDateShortFormat": "DD MMM YYYY",
+    "gitlens.defaultDateFormat": "DD MMMM YYYY hh:mm",
+    "gitlens.views.repositories.location": "scm",
+    "gitlens.views.fileHistory.location": "explorer",
+    "gitlens.views.lineHistory.location": "explorer",
+    "gitlens.views.compare.location": "gitlens",
+    "gitlens.views.search.location": "gitlens",
+    "sync.autoUpload": true,
+    "sync.autoDownload": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "git.enableCommitSigning": true
 }

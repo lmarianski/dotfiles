@@ -16,19 +16,19 @@ if [ -x "$(which pacman)" ]; then
     PKGLIST+=" htop"
     
     ## GNOME
-    PKGLIST+=" gnome-shell"
+    #PKGLIST+=" gnome-shell"
 
     ## Apps
-    PKGLIST+=" keybase keybase-gui kbfs brave-bin spotify discord"
+    PKGLIST+=" keybase keybase-gui kbfs brave-bin spotify discord betterdiscordctl-git"
 
     ## Games
-    PKGLIST+=" steam lutris"
+    #PKGLIST+=" steam lutris"
 
     ## Java
     PKGLIST+=" jdk-openjdk jdk8-openjdk"
 
     ## Dev tools
-    PKGLIST+=" git git-crypt code nodejs nvm intellij-idea-community-edition"
+    PKGLIST+=" git git-crypt code nodejs nvm"
 
     # ## NVIDIA Drivers
     # if [ $(lspci  -v -s  $(lspci | grep ' VGA ' | cut -d" " -f 1) | grep NVIDIA | wc -l) -gt 0]; then
@@ -48,6 +48,10 @@ if [ -x "$(which pacman)" ]; then
     # fi
 fi
 
+## Symlinks
+#ln -s ~/.renpy ~/Dokumenty/Games/RenPy
+#ln -s ~/.paradoxinteractive ~/Dokumenty/Games/Paradox\ Interactive
+
 ## Keybase
 if [ -x "$(which keybase)" ]; then
     systemctl enable --user --now keybase
@@ -65,12 +69,12 @@ if [ -x "$(which keybase)" ]; then
 fi
 
 ## BetterDiscord
-if [ -x "$(which discord)" ]; then
-    if [ ! -x "$(which betterdiscordctl)" ]; then
-        curl -O https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
-        chmod +x betterdiscordctl
-        sudo mv betterdiscordctl /usr/local/bin
-    fi
+if [ -x "$(which betterdiscordctl)" ]; then
+    # if [ ! -x "$(which betterdiscordctl)" ]; then
+    #     curl -O https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
+    #     chmod +x betterdiscordctl
+    #     sudo mv betterdiscordctl /usr/local/bin
+    # fi
 
     betterdiscordctl install
 fi
