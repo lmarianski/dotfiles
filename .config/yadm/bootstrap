@@ -12,29 +12,27 @@ if [ -x "$(which pacman)" ]; then
 
     PKGLIST="yay yadm"
 
+    ## Setup
+    #PKGLIST=" keybase git-crypt"
+
     ## Tools
-    PKGLIST+=" htop"
+    #PKGLIST+=" htop"
     
     ## GNOME
     #PKGLIST+=" gnome-shell"
 
     ## Apps
-    PKGLIST+=" keybase keybase-gui kbfs brave-bin spotify discord betterdiscordctl-git"
+    #PKGLIST+=" keybase-gui kbfs"
+    #PKGLIST+=" brave-bin spotify discord betterdiscordctl-git"
 
     ## Games
     #PKGLIST+=" steam lutris"
 
     ## Java
-    PKGLIST+=" jdk-openjdk jdk8-openjdk"
+    #PKGLIST+=" jdk-openjdk jdk8-openjdk"
 
     ## Dev tools
-    PKGLIST+=" git git-crypt code nodejs nvm"
-
-    # ## NVIDIA Drivers
-    # if [ $(lspci  -v -s  $(lspci | grep ' VGA ' | cut -d" " -f 1) | grep NVIDIA | wc -l) -gt 0]; then
-    #     PKGLIST+=" nvidia nvidia-utils"
-    #     NVIDIA=1
-    # fi
+    #PKGLIST+=" code nodejs nvm"
 
     echo "Updating mirrorlist"
     yay -S --needed reflector
@@ -43,7 +41,7 @@ if [ -x "$(which pacman)" ]; then
     echo "Installing packages"
     yay -Syu --needed $PKGLIST
 
-    betterdiscordctl install
+    #betterdiscordctl install
 
     # if [ $NVIDIA = 1]; then
     #     sudo nvidia-xconfig
@@ -62,7 +60,7 @@ if [ -x "$(which keybase)" ]; then
     keybase ctl autostart --disable
 
     keybase config set mountdir $HOME/keybase
-    systemctl enable --user --now kbfs
+    #systemctl enable --user --now kbfs
 
     keybase pgp export | gpg --import
     keybase pgp export -s | gpg --allow-secret-key-import --import
