@@ -17,7 +17,7 @@ export GOPATH=$HOME/go
 
 #export KEYBASE=$(keybase config get -b mountdir)
 
-export PATH="$HOME/.local/bin:$HOME/bin:$PATH:$HOME/scripts:/usr/local/bin:$HOME/.gem/ruby/${RUBY_VER}/bin:${ANDROID_PATH}:$HOME/.npm/bin:$GOPATH/bin:$PATH"
+export PATH="$ANDROID_NDK_HOME/toolchains/llvm/prebuilt/linux-x86_64/bin:$HOME/.local/bin:$HOME/bin:$PATH:$HOME/scripts:/usr/local/bin:$HOME/.gem/ruby/${RUBY_VER}/bin:${ANDROID_PATH}:$HOME/.npm/bin:$GOPATH/bin:$PATH"
 
 export PATH="$HOME/.node_modules/bin:$PATH"
 
@@ -28,6 +28,7 @@ alias ls='ls --color=auto'
 alias clip="xclip -sel clipboard"
 alias sn="java -jar $HOME/Dokumenty/Projects/sn/out/artifacts/sn_jar/sn.jar "
 #alias "yarn berry"="yarn set version berry"
+alias session-type="loginctl show-session \$(awk '/tty/ {print \$1}' <(loginctl)) -p Type | awk -F= '{print \$2}'"
 
 mkdir -p /tmp/makepkg
 export MAKEFLAGS=-j12

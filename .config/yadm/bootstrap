@@ -43,6 +43,8 @@ if [ -x "$(which pacman)" ]; then
     echo "Installing packages"
     yay -Syu --needed $PKGLIST
 
+    betterdiscordctl install
+
     # if [ $NVIDIA = 1]; then
     #     sudo nvidia-xconfig
     # fi
@@ -69,15 +71,15 @@ if [ -x "$(which keybase)" ]; then
 fi
 
 ## BetterDiscord
-if [ -x "$(which betterdiscordctl)" ]; then
-    # if [ ! -x "$(which betterdiscordctl)" ]; then
-    #     curl -O https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
-    #     chmod +x betterdiscordctl
-    #     sudo mv betterdiscordctl /usr/local/bin
-    # fi
+# if [ -x "$(which discord)" ]; then
+#     # if [ ! -x "$(which betterdiscordctl)" ]; then
+#     #     curl -O https://raw.githubusercontent.com/bb010g/betterdiscordctl/master/betterdiscordctl
+#     #     chmod +x betterdiscordctl
+#     #     sudo mv betterdiscordctl /usr/local/bin
+#     # fi
 
-    betterdiscordctl install
-fi
+#     betterdiscordctl install
+# fi
 
 echo "Updating the yadm repo origin URL"
 yadm remote set-url origin "git@github.com:lmarianski/dotfiles.git"

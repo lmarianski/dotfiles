@@ -1,5 +1,5 @@
 {
-    "files.autoSave": "off",
+    "files.autoSave": "afterDelay",
     "[csharp]": {
         "editor.defaultFormatter": "ms-vscode.csharp"
     },
@@ -53,5 +53,10 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "git.enableCommitSigning": true
+    "git.enableCommitSigning": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "discord.silent": true
 }
