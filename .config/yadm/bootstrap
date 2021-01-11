@@ -79,5 +79,7 @@ fi
 #     betterdiscordctl install
 # fi
 
-echo "Updating the yadm repo origin URL"
-yadm remote set-url origin "git@github.com:lmarianski/dotfiles.git"
+if [ -x "$(which ssh)" ]; then
+  echo "Updating the yadm repo origin URL"
+  yadm remote set-url origin "git@github.com:lmarianski/dotfiles.git"
+fi
