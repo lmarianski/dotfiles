@@ -1,7 +1,6 @@
 #!/bin/bash
 
-sudo reflector --verbose --sort rate -c PL -c DE -c GB -p https -l 5 -a 12 --save /etc/pacman.d/mirrorlist
+[ "$(id -u)" -ne 0 ] && exec sudo $0
 
-
-
-yay -Syyuu
+reflector --verbose --sort rate -c PL -c DE -c GB -p ftp -p https -l 5 -a 12 --save /etc/pacman.d/mirrorlist
+pacman -Syyuu

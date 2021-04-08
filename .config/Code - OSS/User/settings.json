@@ -58,5 +58,9 @@
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "java.configuration.checkProjectSettingsExclusions": false,
-    "discord.silent": true
+    "discord.silent": true,
+    "[vue]": {
+        "editor.defaultFormatter": "octref.vetur"
+    },
+    "tabnine.experimentalAutoImports": true
 }

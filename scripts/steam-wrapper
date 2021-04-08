@@ -21,4 +21,4 @@ relink "$XDG_CONFIG_HOME" "$HOME/.config"
 relink "$XDG_CACHE_HOME" "$HOME/.cache"
 relink "$XDG_DATA_HOME/.." "$HOME/.local"
 
-exec gamemoderun /usr/bin/steam "$@"
+exec /usr/bin/steam "$@"
