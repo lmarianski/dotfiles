@@ -1,7 +1,18 @@
-#!/usr/bin/env sh
+#!/bin/bash
+
+(
 
 #source ~/.bashrc
 #export -p
+
+#read -t 5 -p "I am going to wait for 5 seconds only ..."
+
+
+[ -z "$XDG_CONFIG_HOME" ] && XDG_CONFIG_HOME=$HOME/.config
+[ -z "$XDG_CACHE_HOME" ] && XDG_CACHE_HOME=$HOME/.cache
+[ -z "$XDG_DATA_HOME" ] && XDG_DATA_HOME=$HOME/.local/share
+
+
 
 HOME=$XDG_DATA_HOME/Steam
 
@@ -20,5 +31,6 @@ relink() {
 relink "$XDG_CONFIG_HOME" "$HOME/.config"
 relink "$XDG_CACHE_HOME" "$HOME/.cache"
 relink "$XDG_DATA_HOME/.." "$HOME/.local"
-
 exec /usr/bin/steam "$@"
+#read -t 5 -p "I am going to wait for 5 seconds only ..."
+) > /home/m00n/steam-log.txt

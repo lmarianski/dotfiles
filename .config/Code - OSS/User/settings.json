@@ -7,7 +7,7 @@
     "editor.insertSpaces": false,
     "pandoc.pdfOptString": "--pdf-engine=xelatex",
     "git.autofetch": true,
-    "i18n-ally.displayLanguage": "pl",
+    "i18n-ally.displayLanguage": "en",
     "git.confirmSync": false,
     "editor.fontFamily": "'Hack', 'monospace', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "docker.contexts.label": "Name",
@@ -55,12 +55,22 @@
     },
     "git.enableCommitSigning": true,
     "[typescript]": {
+    
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "java.configuration.checkProjectSettingsExclusions": false,
     "discord.silent": true,
     "[vue]": {
-        "editor.defaultFormatter": "octref.vetur"
+        "editor.defaultFormatter": "johnsoncodehk.volar"
     },
-    "tabnine.experimentalAutoImports": true
+    "tabnine.experimentalAutoImports": true,
+    "vetur.format.options.tabSize": 4,
+    "vetur.format.options.useTabs": true,
+    "vetur.useWorkspaceDependencies": true,
+    "markdown-preview-enhanced.usePandocParser": true,
+    "markdown-preview-enhanced.latexEngine": "xelatex",
+    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+    "markdown-preview-enhanced.usePuppeteerCore": false,
+    "redhat.telemetry.enabled": false,
+    "editor.largeFileOptimizations": false
 }
