@@ -18,6 +18,8 @@
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
 
+*.cursorColor: #F8F8F2
+
 dwm.normfgcolor:     #ff79c6
 dwm.normbgcolor:     #282a36
 dwm.normbordercolor: #282a36
@@ -25,3 +27,5 @@ dwm.normbordercolor: #282a36
 dwm.selfgcolor:     #ffb86c
 dwm.selbgcolor:     #282a36
 dwm.selbordercolor: #ffb86c
+
+st.font: Hack:pixelsize=14:antialias=true:autohint=true

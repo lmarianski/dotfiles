@@ -72,5 +72,6 @@
     "markdown-preview-enhanced.previewTheme": "atom-dark.css",
     "markdown-preview-enhanced.usePuppeteerCore": false,
     "redhat.telemetry.enabled": false,
-    "editor.largeFileOptimizations": false
+    "editor.largeFileOptimizations": false,
+    "workbench.colorTheme": "Dracula"
 }
